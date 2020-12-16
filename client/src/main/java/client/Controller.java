@@ -174,8 +174,8 @@ public class Controller implements Initializable {
         }
     }
 
-    //Доработать историю
-    //================//
+    //Комментарий по данной части кода оставил в комментарии на GB
+
 //    private void saveHistory() throws IOException {
 //        try {
 //            File history = new File("history.txt");
@@ -193,7 +193,6 @@ public class Controller implements Initializable {
 //            e.printStackTrace();
 //        }
 //    }
-//    //================//
 //    private void loadHistory() throws IOException {
 //        int posHistory = 100;
 //        File history = new File("history.txt");
@@ -218,7 +217,6 @@ public class Controller implements Initializable {
 //            }
 //        }
 //    }
-    //================//
 
     @FXML
     public void sendMsg() {

@@ -16,5 +16,6 @@ public class DBAuthService implements AuthService{
         public boolean changeNick(String oldNickname, String newNickname) {
             return changeNick(oldNickname, newNickname);
         }
-    }
+
+}
 

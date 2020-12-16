@@ -24,5 +24,4 @@
         <TextField fx:id="textField" HBox.hgrow="ALWAYS" promptText="input text" onAction="#sendMsg"/>
         <Button text="Send" onAction="#sendMsg"/>
     </HBox>
-
 </VBox>

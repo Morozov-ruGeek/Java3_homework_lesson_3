@@ -16,5 +16,4 @@
 
     <Button text="Registration" onAction="#tryToReg"/>
 
-
 </VBox>

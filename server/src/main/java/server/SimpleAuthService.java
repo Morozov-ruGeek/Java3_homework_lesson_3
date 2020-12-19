@@ -82,5 +82,4 @@ public class SimpleAuthService implements AuthService {
             throwables.printStackTrace();
         }
     }
-
 }

@@ -5,6 +5,9 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 public class ClientHandler {
@@ -23,7 +26,18 @@ public class ClientHandler {
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
 
-            new Thread(() -> {
+/*
+Дополнительное задание:
+1. Применение ExecutorService для настоящего чата считаю обоснованным в случае одновременного подключения
+большого количества пользователей, а не последовательное подключение по одному клиенту. В противном случае применение ExecutorService считаю избыточным;
+2. В случае применения ExecutorService считаю оптимальным использовать CashedThreadPool, в связи с явным преимуществом -
+удаление потоков после 60сек. inactivity.
+ */
+
+            ExecutorService service = Executors.newCachedThreadPool();
+
+
+            service.execute/*new Thread*/(() -> {
                 try {
                     socket.setSoTimeout(120000);
                     //цикл аутентификации
@@ -118,7 +132,11 @@ public class ClientHandler {
                         e.printStackTrace();
                     }
                 }
-            }).start();
+            })/*.start*/;
+
+            service.shutdown();
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
